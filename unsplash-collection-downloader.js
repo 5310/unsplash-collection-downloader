@@ -16,7 +16,7 @@ const unsplash = new Unsplash({
 const collection = async (id, width, height) => {
   let photos = [], page, i = 1
   do {
-    page = (await unsplash.collections.getCollectionPhotos('168902', i, 30).then(toJson))
+    page = (await unsplash.collections.getCollectionPhotos(id, i, 30).then(toJson))
       .map(photo => photo.urls.raw)
       .map(photo => width && height ? `${photo}&fit=crop&crop=entropy&w=${width}&h=${height}` : photo)
     i++
