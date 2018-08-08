@@ -1,0 +1,18 @@
+{
+  "name": "unsplash-collection-downloader",
+  "version": "1.0.0",
+  "description": "Download Unsplash collections by ID",
+  "main": "unsplash-collection-downloader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sayantan Chaudhuri",
+  "license": "MIT",
+  "dependencies": {
+    "images-downloader": "^1.0.3",
+    "minimist": "^1.2.0",
+    "mkdirp-promise": "^5.0.1",
+    "node-fetch": "^2.2.0",
+    "unsplash-js": "^4.8.0"
+  }
+}
