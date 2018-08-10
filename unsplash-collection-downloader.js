@@ -14,7 +14,8 @@ const unsplash = new Unsplash({
 })
 
 const collection = async (id, width, height) => {
-  let photos = [], page, i = 1
+  let photos = []
+  let page; let i = 1
   do {
     page = (await unsplash.collections.getCollectionPhotos(id, i, 30).then(toJson))
       .map(photo => photo.urls.raw)
@@ -31,11 +32,11 @@ run(async () => {
     console.log(`
 Usage: unsplash-collection-downloader [-w width, -h height, --help] collection-id [download-dir]
 
-A collection-id is required. Unsplash collection URLs take the following form: 
+A collection-id is required. Unsplash collection URLs take the following form:
 https://unsplash.com/collections/<collection-id>/<collection-name>
 
-If no download-dir is given, the files are downloaded in a child directory the 
-same name as the collection-id under the present directory.  
+If no download-dir is given, the files are downloaded in a child directory the
+same name as the collection-id under the present directory.
 
 Options:
   -w            width to crop the downloaded images to
@@ -43,8 +44,8 @@ Options:
   --help        this information
 `.slice(1, -1)
     )
-    return 
-  } 
+    return
+  }
   const photos = await collection(id, w, h)
   await mkdirp(output || id)
   download(photos, output || id)
